@@ -1,0 +1,12 @@
+SELECT t1.*, t2.vendor_name, t3.item_name
+FROM YourTable t1
+INNER JOIN VendorTable t2 ON t1.vendor_id = t2.vendor_id
+INNER JOIN ItemTable t3 ON t1.item_id = t3.item_id
+WHERE
+    (YourDateColumn BETWEEN 'fromdate' AND 'todate')
+    AND (
+        t1.site_id IN (20, 40)
+        OR t1.tree_acc_name_searchtree = 'test'
+        OR t1.vendor_id IN (25635, 54564)
+        OR t1.item_group_id IN (25635, 54564)
+    );
